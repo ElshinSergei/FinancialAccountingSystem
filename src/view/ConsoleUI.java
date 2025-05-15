@@ -126,6 +126,9 @@ public class ConsoleUI implements View {
         System.out.println(info);
     }
 
+    /**
+     * Создание нового кошелька
+     */
     public void createWallet() {
         System.out.println("Введите имя кошелька: ");
         String nameWallet = scanner.nextLine();
@@ -134,12 +137,18 @@ public class ConsoleUI implements View {
         walletController.createWallet(nameWallet, balanceWallet);
     }
 
+    /**
+     * Удаление кошелька
+     */
     public void deleteWallet() {
         System.out.println("Введите id кошелька для удаления: ");
         String id = scanner.nextLine();
         walletController.deleteWallet(id);
     }
 
+    /**
+     * Изменить данные кошелька
+     */
     public void updateWallet() {
         System.out.println("Введите ID кошелька для изменения: ");
         String id = scanner.nextLine();
@@ -150,10 +159,16 @@ public class ConsoleUI implements View {
         walletController.updateWallet(id, newName, newBalance);
     }
 
+    /**
+     * Показать все кошельки
+     */
     public void showAllWallets() {
         walletController.showAllWallets();
     }
 
+    /**
+     * Добавление карты
+     */
     public void createCard() {
         System.out.println("Введите номер дебетовой карты: ");
         String cardNumber = scanner.nextLine();
@@ -164,12 +179,18 @@ public class ConsoleUI implements View {
         debitCardController.createCard(cardNumber, bankName, balanceCard);
     }
 
+    /**
+     * Удалить карту
+     */
     public void deleteCard() {
         System.out.println("Введите id карты для удаления: ");
         String id = scanner.nextLine();
         debitCardController.deleteDebitCard(id);
     }
 
+    /**
+     * Изменить данные карты
+     */
     public void updateCard() {
         System.out.println("Введите ID карты для изменения: ");
         String id = scanner.nextLine();
@@ -182,10 +203,16 @@ public class ConsoleUI implements View {
         debitCardController.updateCard(id, newCardNumber, newNameBank, newBalanceCard);
     }
 
+    /**
+     * Показать все карты
+     */
     public void showAllCards() {
         debitCardController.showAllCards();
     }
 
+    /**
+     * Добавление текущего расхода
+     */
     public void addCurrentExpense() {
         System.out.println("\n=== Добавление текущего расхода ===");
 
@@ -210,10 +237,16 @@ public class ConsoleUI implements View {
         currentExpenseController.addExpense(amountStr,categoryStr, description, sourceId);
     }
 
+    /**
+     * Показать все текущие расходы
+     */
     public void showExpenses() {
         currentExpenseController.showAllExpenses();
     }
 
+    /**
+     * Добавление потенциального расхода
+     */
     public void addPotentialExpense() {
         System.out.println("\n=== Добавление потенциального расхода ===");
 
@@ -235,10 +268,16 @@ public class ConsoleUI implements View {
         potentialExpenseController.addPotentialExpense(amountStr, categoryStr, dateStr, description);
     }
 
+    /**
+     * Показать все потенциальные расходы
+     */
     public void showAllPotentialExpenses() {
         potentialExpenseController.showAllPotentialExpenses();
     }
 
+    /**
+     * Добавление потенциального дохода
+     */
     public void addPotentialIncome() {
         System.out.println("\n=== Добавление потенциального дохода ===");
 
@@ -260,12 +299,11 @@ public class ConsoleUI implements View {
 
     }
 
+    /**
+     * Показать все потенциальные доходы
+     */
     public void showPotentialIncomes() {
         potentialIncomeController.showPotentialIncomes();
-    }
-
-    public void showFinancialReport() {
-
     }
 
     public void exit () {

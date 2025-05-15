@@ -20,6 +20,9 @@ public class CurrentExpenseController {
         this.view = view;
     }
 
+    /**
+     * Показать все текущие расходы
+     */
     public void showAllExpenses() {
 
         List<CurrentExpense> currentExpenses = currentExpenseService.getAllExpenses();
@@ -32,12 +35,13 @@ public class CurrentExpenseController {
         StringBuilder sb = new StringBuilder();
         sb.append("\nСписок текущих расходов:\n");
         sb.append("------------------------------------------------------------\n");
-        sb.append(String.format("| %-12s | %-15s | %-10s | %-20s | %-15s |%n",
-                "Дата", "Сумма", "Категория", "Описание", "Способ оплаты"));
+        sb.append(String.format("| %-4s | %-12s | %-15s | %-10s | %-20s | %-15s |%n",
+                "ID", "Дата", "Сумма", "Категория", "Описание", "Способ оплаты"));
         sb.append("------------------------------------------------------------\n");
 
         for (CurrentExpense expense : currentExpenses) {
-            sb.append(String.format("| %-12s | %-15s | %-10s | %-20s | %-15s |%n",
+            sb.append(String.format("| %-4d | %-12s | %-15s | %-10s | %-20s | %-15s |%n",
+                    expense.getId(),
                     expense.getDate(),
                     expense.getAmount() + " ₽",
                     expense.getCategory(),
@@ -49,6 +53,13 @@ public class CurrentExpenseController {
         view.printAnswer(sb.toString());
     }
 
+    /**
+     * Добавить текущий расход
+     * @param amountStr
+     * @param categoryStr
+     * @param description
+     * @param sourceId
+     */
     public void addExpense(String amountStr, String categoryStr, String description, String sourceId) {
         try {
             currentExpenseService.addCurrentExpense(amountStr, categoryStr, description, sourceId);

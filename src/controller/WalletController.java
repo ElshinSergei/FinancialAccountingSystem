@@ -17,14 +17,11 @@ public class WalletController {
         this.view = view;
     }
 
-    public Wallet getWalletById(long id) {
-        return walletService.getWalletById(id);
-    }
-
-    public Map<Long, Wallet> getAllWallets() {
-        return walletService.getAllWallets();
-    }
-
+    /**
+     * Создать кошелек
+     * @param nameWallet
+     * @param balanceWallet
+     */
     public void createWallet(String nameWallet, String balanceWallet) {
         try {
             BigDecimal balance = new BigDecimal(balanceWallet);
@@ -35,6 +32,10 @@ public class WalletController {
         }
     }
 
+    /**
+     * Удалить кошелек
+     * @param idStr
+     */
     public void deleteWallet(String idStr) {
         try {
             long id = Long.parseLong(idStr);
@@ -48,6 +49,9 @@ public class WalletController {
         }
     }
 
+    /**
+     * Показать все кошельки
+     */
     public void showAllWallets() {
         Map<Long, Wallet> wallets = walletService.getAllWallets();
         if (wallets.isEmpty()) {
@@ -63,6 +67,12 @@ public class WalletController {
         }
     }
 
+    /**
+     * Изменить данные кошелька
+     * @param idStr
+     * @param newName
+     * @param newBalanceStr
+     */
     public void updateWallet(String idStr, String newName, String newBalanceStr) {
        try {
            long id = Long.parseLong(idStr);

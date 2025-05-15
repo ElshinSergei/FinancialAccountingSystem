@@ -1,6 +1,5 @@
 package service;
 
-import controller.DebitCardController;
 import entity.DebitCard;
 import repository.DebitCardRepository;
 
@@ -14,14 +13,30 @@ public class DebitCardService {
         this.debitCardRepository = debitCardRepository;
     }
 
+    /**
+     * ПОлучить карту по ID
+     * @param id
+     * @return
+     */
     public DebitCard getDebitCardById(long id) {
         return debitCardRepository.getDebitCardById(id);
     }
 
+    /**
+     * Добавить карту
+     * @param cardNumber
+     * @param bankName
+     * @param balance
+     */
     public void createDebitCard(String cardNumber, String bankName, BigDecimal balance) {
         debitCardRepository.createDebitCard(cardNumber, bankName, balance);
     }
 
+    /**
+     * Удалить карту
+     * @param id
+     * @return
+     */
     public boolean deleteDebitCard(Long id) {
         if (debitCardRepository.getDebitCardById(id) != null) {
             debitCardRepository.deleteDebitCard(id);
@@ -30,10 +45,22 @@ public class DebitCardService {
         return false;
     }
 
+    /**
+     * Получить все карты
+     * @return
+     */
     public Map<Long, DebitCard> getAllCards() {
         return debitCardRepository.getAllDebitCards();
     }
 
+    /**
+     * Изменить данные карты
+     * @param id
+     * @param newCardNumber
+     * @param newBankName
+     * @param newBalance
+     * @return
+     */
     public boolean updateCard(long id, String newCardNumber, String newBankName, BigDecimal newBalance) {
         DebitCard debitCard = debitCardRepository.getDebitCardById(id);
         if (debitCard != null) {

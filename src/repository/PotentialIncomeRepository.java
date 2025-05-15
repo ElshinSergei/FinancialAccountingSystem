@@ -1,7 +1,5 @@
 package repository;
 
-import entity.CurrentExpense;
-import entity.PotentialExpense;
 import entity.PotentialIncome;
 
 import java.io.*;
@@ -43,18 +41,6 @@ public class PotentialIncomeRepository {
         return potentialIncomes.remove(id) != null;
     }
 
-    /**
-     * Обновление операции
-     * @param potentialIncome
-     * @return
-     */
-    public boolean update(PotentialIncome potentialIncome) {
-        if (potentialIncomes.containsKey(potentialIncome.getId())) {
-            potentialIncomes.put(potentialIncome.getId(), potentialIncome);
-            return true;
-        }
-        return false;
-    }
 
     /**
      * Сохранение в файл

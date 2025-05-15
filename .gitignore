@@ -49,3 +49,9 @@ bin/
 *.tmp
 *.regtrans-ms
 EOF
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+*.ipr
+*.iws

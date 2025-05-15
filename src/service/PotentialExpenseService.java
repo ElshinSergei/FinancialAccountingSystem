@@ -1,6 +1,5 @@
 package service;
 
-import controller.PotentialExpenseController;
 import entity.PotentialExpense;
 import entity.enums.ExpenseCategory;
 import repository.PotentialExpenseRepository;
@@ -17,6 +16,13 @@ public class PotentialExpenseService {
         this.potentialExpenseRepository = potentialExpenseRepository;
     }
 
+    /**
+     * Добавить потенциальный расход
+     * @param amountStr
+     * @param categoryStr
+     * @param dateStr
+     * @param description
+     */
     public void addPotentialExpense(String amountStr, String categoryStr, String dateStr, String description) {
 
         BigDecimal amount;
@@ -45,6 +51,10 @@ public class PotentialExpenseService {
         potentialExpenseRepository.add(potentialExpense);
     }
 
+    /**
+     * Получить все потенциальные расходы
+     * @return
+     */
     public List<PotentialExpense> getAllPotentialExpenses() {
        return potentialExpenseRepository.getAll();
     }

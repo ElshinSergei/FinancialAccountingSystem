@@ -66,7 +66,6 @@ public class CurrentExpenseService {
 
         CurrentExpense currentExpense = new CurrentExpense(amount, category, currentDate, description, paymentMethod);
         currentExpenseRepository.add(currentExpense);
-
     }
 
     /**

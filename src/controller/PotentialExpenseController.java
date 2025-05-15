@@ -5,8 +5,6 @@ import repository.PotentialExpenseRepository;
 import service.PotentialExpenseService;
 import view.View;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.List;
 
 public class PotentialExpenseController {
@@ -18,6 +16,13 @@ public class PotentialExpenseController {
         this.view = view;
     }
 
+    /**
+     * Добавить потенциальный расход
+     * @param amountStr
+     * @param categoryStr
+     * @param dateStr
+     * @param description
+     */
     public void addPotentialExpense(String amountStr, String categoryStr, String dateStr, String description) {
        try {
            potentialExpenseService.addPotentialExpense(amountStr, categoryStr, dateStr, description);
@@ -27,6 +32,9 @@ public class PotentialExpenseController {
        }
     }
 
+    /**
+     * Показать все потенциальные расходы
+     */
     public void showAllPotentialExpenses() {
 
         List<PotentialExpense> potentialExpenses = potentialExpenseService.getAllPotentialExpenses();

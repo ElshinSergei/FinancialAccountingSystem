@@ -42,18 +42,6 @@ public class PotentialExpenseRepository {
         return potentialExpenses.remove(id) != null;
     }
 
-    /**
-     * Обновление операции
-     * @param potentialExpense
-     * @return
-     */
-    public boolean update(PotentialExpense potentialExpense) {
-        if (potentialExpenses.containsKey(potentialExpense.getId())) {
-            potentialExpenses.put(potentialExpense.getId(), potentialExpense);
-            return true;
-        }
-        return false;
-    }
 
     /**
      * Сохранение в файл

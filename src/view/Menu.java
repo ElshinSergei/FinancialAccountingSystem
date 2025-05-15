@@ -1,7 +1,6 @@
 package view;
 
 import view.commands.Exit;
-import view.commands.FinancialReport;
 import view.subMenu.*;
 
 import java.util.ArrayList;
@@ -17,7 +16,6 @@ public class Menu {
         commands.add(new CurrentExpenseMenu(consoleUI));
         commands.add(new PotentialIncomeMenu(consoleUI));
         commands.add(new PotentialExpenseMenu(consoleUI));
-        commands.add(new FinancialReport(consoleUI));
         commands.add(new Exit(consoleUI));
     }
 

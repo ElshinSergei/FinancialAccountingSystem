@@ -34,25 +34,12 @@ public class CurrentExpenseRepository {
     }
 
     /**
-     * Удаление по ID
+     * Получение текущего расхода по ID
      * @param id
      * @return
      */
-    public boolean delete(Long id) {
-        return currentExpenses.remove(id) != null;
-    }
-
-    /**
-     * Обновление операции
-     * @param currentExpense
-     * @return
-     */
-    public boolean update(CurrentExpense currentExpense) {
-        if (currentExpenses.containsKey(currentExpense.getId())) {
-            currentExpenses.put(currentExpense.getId(), currentExpense);
-            return true;
-        }
-        return false;
+    public CurrentExpense getById(Long id) {
+        return currentExpenses.get(id);
     }
 
     /**

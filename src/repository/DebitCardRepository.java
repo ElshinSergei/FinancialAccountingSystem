@@ -93,6 +93,10 @@ public class DebitCardRepository {
         debitCard.setBalance(debitCard.getBalance().subtract(amount));
     }
 
+    /**
+     * Сохранение в файл
+     * @param filename
+     */
     public void saveToFile(String filename) {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
             oos.writeObject(cards);
@@ -101,6 +105,10 @@ public class DebitCardRepository {
         }
     }
 
+    /**
+     * Загрузить из файла
+     * @param filename
+     */
     @SuppressWarnings("uncheсked")
     public void loadFromFile(String filename) {
         File file = new File(filename);

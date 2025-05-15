@@ -17,14 +17,12 @@ public class DebitCardController {
         this.view = view;
     }
 
-    public DebitCard getDebitCardById(long id) {
-        return debitCardService.getDebitCardById(id);
-    }
-
-    public Map<Long, DebitCard> getAllCards() {
-        return debitCardService.getAllCards();
-    }
-
+    /**
+     * Добавить карту
+     * @param cardNumber
+     * @param bankName
+     * @param balanceCard
+     */
     public void createCard(String cardNumber, String bankName, String balanceCard) {
         try {
             BigDecimal balance = new BigDecimal(balanceCard);
@@ -35,6 +33,10 @@ public class DebitCardController {
         }
     }
 
+    /**
+     * Удалить карту
+     * @param idStr
+     */
     public void deleteDebitCard(String idStr) {
         try {
             Long id = Long.parseLong(idStr);
@@ -48,6 +50,9 @@ public class DebitCardController {
         }
     }
 
+    /**
+     * Показать все карты
+     */
     public void showAllCards() {
         Map<Long, DebitCard> cards = debitCardService.getAllCards();
         if (cards.isEmpty()) {
@@ -64,6 +69,13 @@ public class DebitCardController {
         }
     }
 
+    /**
+     * Изменить данные карты
+     * @param idStr
+     * @param newCardNumber
+     * @param newNameBank
+     * @param newBalanceCard
+     */
     public void updateCard(String idStr, String newCardNumber, String newNameBank, String newBalanceCard) {
         try {
             Long id = Long.parseLong(idStr);
@@ -78,4 +90,3 @@ public class DebitCardController {
         }
     }
 }
-

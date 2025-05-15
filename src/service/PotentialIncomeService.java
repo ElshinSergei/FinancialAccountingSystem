@@ -1,6 +1,5 @@
 package service;
 
-import controller.PotentialIncomeController;
 import entity.PotentialIncome;
 import entity.enums.IncomeCategory;
 import repository.PotentialIncomeRepository;
@@ -17,6 +16,13 @@ public class PotentialIncomeService {
         this.potentialIncomeRepository = potentialIncomeRepository;
     }
 
+    /**
+     * Добавить потенциальный доход
+     * @param amountStr
+     * @param categoryStr
+     * @param dateStr
+     * @param description
+     */
     public void addPotentialIncome(String amountStr, String categoryStr, String dateStr, String description) {
 
         BigDecimal amount;
@@ -40,11 +46,14 @@ public class PotentialIncomeService {
             throw new IllegalArgumentException("Неверный формат даты. Используйте гггг-мм-дд");
         }
 
-
         PotentialIncome potentialIncome = new PotentialIncome(amount, category, date, description);
         potentialIncomeRepository.add(potentialIncome);
     }
 
+    /**
+     * Получить все потенциальные доходы
+     * @return
+     */
     public List<PotentialIncome> getPotentialIncomes() {
         return potentialIncomeRepository.getAll();
     }

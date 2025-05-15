@@ -1,14 +1,10 @@
 package controller;
 
-import entity.PotentialExpense;
 import entity.PotentialIncome;
 import repository.PotentialIncomeRepository;
 import service.PotentialIncomeService;
 import view.View;
-import view.commands.potentialIncome.AddPotentialIncome;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.List;
 
 public class PotentialIncomeController {
@@ -20,6 +16,13 @@ public class PotentialIncomeController {
         this.view = view;
     }
 
+    /**
+     * Добавить потенциальный доход
+     * @param amountStr
+     * @param categoryStr
+     * @param dateStr
+     * @param description
+     */
     public void addPotentialIncome(String amountStr, String categoryStr, String dateStr, String description) {
         try {
             potentialIncomeService.addPotentialIncome(amountStr, categoryStr, dateStr, description);
@@ -29,6 +32,9 @@ public class PotentialIncomeController {
         }
     }
 
+    /**
+     * Показать все потенциальные доходы
+     */
     public void showPotentialIncomes() {
         List<PotentialIncome> potentialIncomes = potentialIncomeService.getPotentialIncomes();
 

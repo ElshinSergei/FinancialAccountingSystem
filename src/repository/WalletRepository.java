@@ -90,6 +90,10 @@ public class WalletRepository {
         wallet.setBalance(wallet.getBalance().subtract(amount));
     }
 
+    /**
+     * Сохранение в файл
+     * @param filename
+     */
     public void saveToFile(String filename) {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
             oos.writeObject(wallets);
@@ -98,7 +102,11 @@ public class WalletRepository {
         }
     }
 
-    @SuppressWarnings("uncheсked")
+    /**
+     * Загрузить из файла
+     * @param filename
+     */
+    @SuppressWarnings("unchecked")
     public void loadFromFile(String filename) {
         File file = new File(filename);
         if (!file.exists()) {

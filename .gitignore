@@ -1,0 +1,51 @@
+### IntelliJ IDEA ###
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+<<EOF
+
+# Системные файлы Windows
+/[Aa]pp[Dd]ata/
+/[Cc]ookies/
+/[Ll]ocal [Ss]ettings/
+/[Nn]et[Hh]ood/
+/[Pp]rint[Hh]ood/
+/[Rr]ecent/
+/[Ss]end[Tt]o/
+/Главное меню/
+/Мои документы/
+/Шаблоны/
+
+# Другие системные файлы
+*.dat
+*.ini
+*.log
+*.tmp
+*.regtrans-ms
+EOF
